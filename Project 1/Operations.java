@@ -7,13 +7,13 @@ public class Operations {
 
     public byte[] decrypt(byte[] rawkey, byte[] plaintext) {
         keyGeneration(rawkey);
-        return roundTwoK2(roundOneK1(plaintext, keyTwo()), keyOne());
+        return roundTwoK2(roundOneK1(plaintext, getKeyTwo()), getKeyOne());
     }
 
     // encrypt an 8 bit plaintext given a key.
     public byte[] encrypt(byte[] rawkey, byte[] plaintext) {
         keyGeneration(rawkey);
-        return roundTwoK2(roundOneK1(plaintext, keyOne()), keyTwo());
+        return roundTwoK2(roundOneK1(plaintext, getKeyOne()), getKeyTwo());
     }
 
 
@@ -338,16 +338,17 @@ public class Operations {
         for (int i = 0; i < byteArray.length; i++) {
             System.out.print(byteArray[i]);
         }
+        // System.out.println();
     }
 
 
     
 
     // Getters
-    public byte[] keyOne() {
+    public byte[] getKeyOne() {
         return keyOne;
     }
-    public byte[] keyTwo() {
+    public byte[] getKeyTwo() {
         return keyTwo;
     }
 
