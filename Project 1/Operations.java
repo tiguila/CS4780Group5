@@ -338,7 +338,6 @@ public class Operations {
         for (int i = 0; i < byteArray.length; i++) {
             System.out.print(byteArray[i]);
         }
-        System.out.println();
     }
 
 
