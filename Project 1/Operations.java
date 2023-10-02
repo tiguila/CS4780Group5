@@ -4,7 +4,6 @@ public class Operations {
     private byte[] keyOne; // k1
     private byte[] keyTwo; // k2
 
-
     public byte[] decrypt(byte[] rawkey, byte[] plaintext) {
         keyGeneration(rawkey);
         return roundTwoK2(roundOneK1(plaintext, getKeyTwo()), getKeyOne());
