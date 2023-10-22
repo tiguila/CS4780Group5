@@ -3,7 +3,7 @@ public class SDES {
 
     public static void main(String[] args) {
         sdes();
-        testCase();
+        // testCase();
     }
 
     /**

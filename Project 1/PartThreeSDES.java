@@ -6,13 +6,13 @@ public class PartThreeSDES {
 
     public static void partOne() {
 
-        
         String plaintext = "CRYPTOGRAPHY";
         System.out.println("CASCII plaintext: " + plaintext);
 
         System.out.print("ciphertext(" + plaintext + "): ");
         byte[] key = { 0,1,1,1,0,0,1,1,0,1};
         print(encrypt(plaintextsInBytes(plaintext), key));
+        
     }
 
 
