@@ -1,5 +1,9 @@
+
+/**
+ * Encrypt and decrypt using Triple SDES
+ */
 public class TripleDES {
-    static PartTwo p = new PartTwo();
+    static PartTwo tripleSDES = new PartTwo();
     static Operations op = new Operations();
     public static void main(String[] args) {
         tripleSdes();
@@ -9,13 +13,13 @@ public class TripleDES {
     public static void tripleSdes() {
         
         // encrypt
-        byte[][] keys1 = {
+        byte[][] keys1Encryption = {
             {0,0,0,0,0,0,0,0,0,0},
             {1,0,0,0,1,0,1,1,1,0},
             {1,0,0,0,1,0,1,1,1,0},
             {1,1,1,1,1,1,1,1,1,1}
         };
-        byte[][] keys2 = {
+        byte[][] keys2Encryption = {
             {0,0,0,0,0,0,0,0,0,0},
             {0,1,1,0,1,0,1,1,1,0},
             {0,1,1,0,1,0,1,1,1,0},
@@ -27,17 +31,17 @@ public class TripleDES {
             {1,0,1,0,1,0,1,0},
             {1,0,1,0,1,0,1,0}
         };
-        tripleSDESEncrypt(keys1, keys2, plaintexts);
+        tripleSDESEncrypt(keys1Encryption, keys2Encryption, plaintexts);
 
         
         // decrypt
-        byte[][] keys1d = {
+        byte[][] keys1decryption = {
             {1,0,0,0,1,0,1,1,1,0},
             {1,0,0,0,1,0,1,1,1,0},
             {0,0,0,0,0,0,0,0,0,0},
             {1,1,1,1,1,1,1,1,1,1}
         };
-        byte[][] keys2d = {
+        byte[][] keys2decryption = {
             {0,1,1,0,1,0,1,1,1,0},
             {0,1,1,0,1,0,1,1,1,0},
             {0,0,0,0,0,0,0,0,0,0},
@@ -51,11 +55,16 @@ public class TripleDES {
         };
 
         // decrypt
-        tripleSDESDecrypt(keys1d, keys2d, ciphertexts);
+        tripleSDESDecrypt(keys1decryption, keys2decryption, ciphertexts);
 
     }
 
-
+    /**
+     * Encrypt plaintexts using triple SDES
+     * @param keys1 The first key set
+     * @param keys2 The second key set
+     * @param plaintexts plaintext set to encrypt
+     */
     public static void tripleSDESEncrypt(byte[][] keys1, byte[][] keys2, byte[][] plaintexts) {
         System.out.println("Encryption");
         System.out.println("key 1\t\tkey 2\t\tPlaintext\tCiphertext");
@@ -64,16 +73,22 @@ public class TripleDES {
             System.out.print("\t");
 
             op.print(keys2[i]);
-            System.out.print("\t");            
+            System.out.print("\t");
 
             op.print(plaintexts[i]);
             System.out.print("\t");
-            op.print(op.encrypt(keys1[i], plaintexts[i]));
+            op.print(tripleSDES.encrypt(keys1[i], keys2[i], keys1[i], plaintexts[i]));
             System.out.println();
         }
         System.out.println();
     }
 
+    /**
+     * Decrypt ciphertexts using triple SDES
+     * @param keys1 The first key set
+     * @param keys2 The second key set
+     * @param ciphertexts ciphertexts set to decrypt
+     */
     public static void tripleSDESDecrypt(byte[][] keys1, byte[][] keys2, byte[][] ciphertexts) {
         System.out.println("Decryption");
         System.out.println("key 1\t\tkey 2\t\tPlaintext\t Ciphertext");
@@ -82,7 +97,7 @@ public class TripleDES {
             System.out.print("\t");
             op.print(keys2[i]);
             System.out.print("\t");
-            op.print(op.decrypt(keys1[i], ciphertexts[i]));
+            op.print(tripleSDES.decrypt(keys1[i], keys2[i], keys1[i], ciphertexts[i]));
             System.out.print("\t");
             op.print(ciphertexts[i]);
             System.out.println();
