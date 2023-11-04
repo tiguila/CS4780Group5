@@ -1,5 +1,3 @@
-// CASCII.java
-// A simplified version of ASCII for encryption and decryption needs
 
 /**
  * <p>Title: CASCII</p>
@@ -144,6 +142,7 @@ public class CASCII {
     // just a general case of the bounded one
     return Convert(bits, 0, bits.length-1);
   }
+  
   /**
    * Converts an array of bits from zeroes and ones to a single ASCII character.
    * The indexes must reference a five slot series in the array or else an exception
@@ -243,6 +242,7 @@ public class CASCII {
       }
   }
 
+  // option 1
   /**
    * Takes an ASCII encoded character string and returns a CASCII encoded
    * byte array.  All characters must be in the set { A-Z, '\'', ':', ',', '.', '?', ' ' }
@@ -265,6 +265,8 @@ public class CASCII {
     return out;
   }
 
+
+  // option 2
   /**
    * Takes an ASCII encoded String and returns a CASCII encoded
    * byte array.  All characters must be in the set { A-Z, '\'', ':', ',', '.', '?', ' ' }
