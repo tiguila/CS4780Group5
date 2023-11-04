@@ -9,7 +9,6 @@
 - Compare SDES and Triple SDES and identify the weaknesses of each cipher, learning how to enhance security in real-life applications.
 
 ## Skills
-This assignment aims to help you practice the following skills essential to your success in this course:
 
 - **MLO 3.4**: Explain the components of modern block ciphers.
 - **MLO 3.6**: Describe the structure of a round in DES.
