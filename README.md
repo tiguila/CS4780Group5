@@ -1,2 +1,4 @@
-# CS4780Group5
+# SDES and Triple SDES Encryption/Decryption
 Cryptography and network security group assignments.
+
+
